@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Расчет углеродного следа здания</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" type="" href="style.css">
+</head>
+<body bgcolor="242424">
+<div class="calc">
+    <div class="header">
+        <br>
+        <p>Калькулятор углеродного следа здания</p>
+        <span>Для расчета углеродного следа ведите потребление каждого вида энергии и нажмите кнопку "Рассчитать" <br>Индивидуальный "углеродный след" человека рассчитывается делением количества энергии на количество человек в домохозяйстве.</span>
+    </div>
+
+    <div class="container">
+        <div class="ln">
+            <span>Количество человек:</span>
+            <input id="humans" class="py-input" type="text" placeholder="1">
+        </div>
+        <div class="ln">
+            <span>Тепловая энергия(kWh):</span>
+            <input id="hot" class="py-input" type="text" placeholder="251212">
+        </div>
+        <div class="ln">
+            <span>Электрическая энергия(kWh):</span>
+            <input id="electric" class="py-input" type="text" placeholder="25233">
+        </div>
+    </div>
+    <br>
+    <button id="calculate" class="py-button" type="submit" py-click="Welcome(result)">Рассчитать</button>
+    <div class = "result">
+        <span id="result"></span>
+    </div>
+
+</div>
+
+    <py-script>
+        from pyscript import Element
+        import random
+
+        result = Element("result")
+        people = Element("humans")
+        warm = Element("hot")
+        electric = Element("electric")
+
+        def Welcome(el):
+            if not people.element.value:
+                return None
+            elif not warm.element.value:
+                return None
+            elif not electric.element.value:
+                return None
+            else:
+                calculate = (float(electric.element.value) * 0.3302 + float(warm.element.value) * 0.1838)/float(people.element.value)/1000
+                res = 'Углеродный след равен '+str(round(calculate, 3))+' тонн CO2'
+                el.write(res)
+    </py-script>
+</body>
+</html>

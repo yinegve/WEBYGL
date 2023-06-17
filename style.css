@@ -1,0 +1,45 @@
+
+.calc {
+    margin: 100px auto;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    background: #333333
+}
+p{
+    color: #ffffff;
+    text-align: center;
+    font-size: 115%
+}
+span {
+    color: #ffffff;
+    text-align: left;
+    margin-left: 25px;
+
+}
+
+.py-input {
+    margin-right: 25px;
+    border: 1px solid black;
+}
+
+.ln{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.py-button{
+    margin: 0 auto;
+    display: block;
+ }
+
+ .result {
+    margin-top: 20px;
+    text-align: center;
+
+ }
+
+.header {
+    width: 95%
+    text-align: center;
+    margin-left: 20px;
+}
